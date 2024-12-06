@@ -2,44 +2,51 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diseño Completo</title>
-    <!-- Agregar enlace a Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="shortcut icon" href="./img/favicon-32x32.png" type="image/x-icon" />
-    <!-- Agregar Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Ejemplo</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/favicon-32x32.png" type="image/x-icon">
+
 </head>
 
 <body>
-    <header class="main-header">
-        <div class="header-top">
-            <p>
-                15% OFF x TRANSFERENCIA 🔥 3 y 6 CUOTAS SIN INTERÉS 🔥 ENVÍO GRATIS
-                (COMPRAS +$150.000)
-            </p>
+    <div class="header-top">
+        <p>15% OFF x TRANSFERENCIA 🔥 3 y 6 CUOTAS SIN INTERÉS 🔥 ENVÍO GRATIS (COMPRAS +$150.000)</p>
+      </div>
+    <!-- Encabezado -->
+<header class="header py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <img src="./img/logo.jpg" alt="Logo" class="logo">
+        
+        <!-- Barra de búsqueda -->
+        <div class="search-bar d-flex">
+            <input type="text" class="form-control" placeholder="¿Qué estás buscando?" aria-label="Buscar">
+            <button class="btn btn-primary ms-2">Buscar</button>
         </div>
-        <div class="nav-bar d-flex justify-content-between align-items-center">
-            <div class="logo"></div>
-            <div class="search-container">
-                <input type="text" id="search-bar" class="form-control" placeholder="¿Qué estás buscando?" />
-                <button id="search-button" class="btn btn-primary">Buscar</button>
-            </div>
-            <div class="user-options">
-                <a href="#" class="btn btn-link">LOGIN</a>
-                <a href="#" class="btn btn-link">CARRITO</a>
-            </div>
+        
+        <!-- Iconos de login y carrito -->
+        <div class="nav-links d-flex align-items-center gap-3">
+            <a class="nav-link" href="#"><i class="bi bi-person"></i> LOGIN</a>
+            <a class="nav-link" href="#"><i class="bi bi-cart"></i> CARRITO</a>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+    </div>
+</header>
+
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
             <a class="navbar-brand" href="#"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#">INICIO</a>
                     </li>
@@ -47,49 +54,38 @@
                         <a class="nav-link" href="#">NOSOTROS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">SERVICIOS DE COMPRAS</a>
+                        <a class="nav-link" href="#">PRODUCTOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">PRODUCTOS</a>
+                        <a class="nav-link" href="#">SERVICIO DE EMPRESA</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">CONTACTO</a>
                     </li>
                 </ul>
             </div>
-        </nav>
-    </header>
-    <main>
-        <section class="banner">
-            <div class="d-flex justify-content-between align-items-center">
-                <!-- Texto a la izquierda -->
-                <div class="promo-left">
-                    <h1>VERANO 2025</h1>
-                    <p>15% OFF PAGANDO CON TRANSFERENCIA</p>
-                    <p>3 Y 6 CUOTAS SIN INTERÉS</p>
-                </div>
-    
-                <!-- Contenedor de las dos imágenes a la derecha con separación entre ellas -->
-                <div class="d-flex justify-content-between" style="width: 800px;">
-                    <!-- Primer imagen -->
-                    <img src="./img/img01.webp" alt="Promo Verano 2025" class="img-fluid image-with-animation" width="400" height="300">
-    
-                    <!-- Segunda imagen -->
-                    <img src="./img/img02.webp" alt="Descuento Verano 2025" class="img-fluid image-with-animation" width="400" height="300">
-                </div>
-            </div>
-        </section>
-    </main>
-           
-    
+        </div>
+    </nav>
+<main>
+    <div class="main">
+        <div class="text-content">
+            <h1>VERANO 2025</h1>
+            <p>15% OFF PAGANDO CON TRANSFERENCIA</p>
+            <p>3 Y 6 CUOTAS SIN INTERÉS</p>
+            <div class="promo-text">¡Aprovecha esta oferta exclusiva!</div>
+        </div>
+        <div class="images">
+            <img src="./img/img02.webp" alt="Imagen promocional">
+        </div>
+    </div>
+</main>
 
-    <!-- Agregar scripts de Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-    <script src="./js/app.js"></script>
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
