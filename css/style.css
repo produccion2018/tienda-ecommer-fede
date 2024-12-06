@@ -1,3 +1,16 @@
+@import url('//fonts.googleapis.com/css?family=Big+Shoulders+Display:400,700|Montserrat:400,700&display=swap');
+
+:root {
+    /* Variables de diseño */
+    --body-font: "Montserrat", sans-serif;
+    --primary-color: #1e90ff; /* Azul principal */
+    --secondary-color: #ffcc00; /* Amarillo de acento */
+    --icon-color: #fff; /* Color de los iconos */
+    --border-color: #000; /* Color del borde de la imagen */
+    --background-gradient: linear-gradient(135deg, #fc040427, #fc0771); /* Fondo general */
+    --main-bg-gradient: linear-gradient(135deg, #222, #111); /* Fondo principal */
+}
+
 /* Reset de márgenes y paddings */
 * {
     margin: 0;
@@ -5,19 +18,10 @@
     box-sizing: border-box;
 }
 
-/* Variables de diseño */
-:root {
-    --body-font: "Montserrat", sans-serif;
-    --primary-color: #1e90ff; /* Azul principal */
-    --secondary-color: #ffcc00; /* Amarillo de acento */
-    --icon-color: #fff; /* Color de los iconos */
-    --border-color: #000; /* Color del borde de la imagen */
-}
-
 /* Fondo general */
 body {
     font-family: var(--body-font);
-    background: linear-gradient(135deg, #fc040427, #fc0771);
+    background: var(--background-gradient);
     color: #fff;
     line-height: 1.6;
     scroll-behavior: smooth;
@@ -80,7 +84,7 @@ body {
     font-weight: 600;
     text-decoration: none;
     position: relative;
-    transition: all 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 }
 
 .navbar .nav-link:hover {
@@ -109,7 +113,7 @@ body {
     justify-content: space-between;
     padding: 60px 20px;
     min-height: 80vh;
-    background: linear-gradient(135deg, #222, #111);
+    background: var(--main-bg-gradient);
     gap: 40px;
 }
 
@@ -230,13 +234,13 @@ footer a:hover {
 /* Animación de texto deslizante */
 @keyframes slide {
     0% {
-      transform: translateX(100%);
+        transform: translateX(100%);
     }
     100% {
-      transform: translateX(-100%);
+        transform: translateX(-100%);
     }
 }
-  
+
 .header-top {
     text-align: center;
     font-size: 12px;
@@ -244,8 +248,38 @@ footer a:hover {
     overflow: hidden;
     position: relative;
 }
-  
+
 .header-top p {
     display: inline-block;
     animation: slide 10s linear infinite;
+}
+
+.promo-text {
+    color: #fff; /* Color blanco */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Alineación centrada */
+    padding: 20px; /* Espaciado interno */
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+.promo-text:hover {
+    background: #000000b3; /* Fondo más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
+}
+
+/* Iconos de login y carrito */
+.navbar .nav-icon {
+    color: var(--primary-color); /* Cambiar color a azul */
+    font-size: 1.8rem; /* Hacer los iconos más pequeños */
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .nav-icon:hover {
+    color: var(--secondary-color); /* Cambiar el color al pasar el ratón */
+    transform: scale(1.1);
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
 }
