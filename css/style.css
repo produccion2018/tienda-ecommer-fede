@@ -1,285 +1,189 @@
-@import url('//fonts.googleapis.com/css?family=Big+Shoulders+Display:400,700|Montserrat:400,700&display=swap');
-
-:root {
-    /* Variables de diseño */
-    --body-font: "Montserrat", sans-serif;
-    --primary-color: #1e90ff; /* Azul principal */
-    --secondary-color: #ffcc00; /* Amarillo de acento */
-    --icon-color: #fff; /* Color de los iconos */
-    --border-color: #000; /* Color del borde de la imagen */
-    --background-gradient: linear-gradient(135deg, #fc040427, #fc0771); /* Fondo general */
-    --main-bg-gradient: linear-gradient(135deg, #222, #111); /* Fondo principal */
-}
-
-/* Reset de márgenes y paddings */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Fondo general */
+/* Estilo general */
 body {
-    font-family: var(--body-font);
-    background: var(--background-gradient);
-    color: #fff;
-    line-height: 1.6;
-    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif; /* Fuente personalizada */
+    background-color: #000;
+    color: #ff6f61;
+    -bs-body-font-family: var(--bs-font-sans-serif); /* Tipografía de Bootstrap */
 }
 
-/* Barra superior */
-.top-bar {
-    font-size: 1rem;
+/* Animación infinita para el texto de la oferta */
+.offer-text {
+    font-size: 24px;
     font-weight: bold;
-    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    color: #cf3476;
+    white-space: nowrap;
+    animation: slideText 40s infinite ease-in-out; /* Animación más lenta */
+}
+
+@keyframes slideText {
+    0% { transform: translateX(100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(-100%); opacity: 0; }
+}
+
+/* Estilo para los textos de la oferta */
+h1, .offer-text p {
     text-align: center;
-    padding: 10px;
-    color: #f7f2f2;
+    font-size: 28px; /* Mejorar la visibilidad del texto */
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 36px; /* Título más grande */
+    color: #ff6f61; /* Color vibrante para el título */
+}
+
+/* Barra de navegación */
+.navbar-nav .nav-link {
+    font-weight: bold;
+    color: #000; /* Texto negro en nav */
     text-transform: uppercase;
+    text-align: center;
+    padding: 10px 20px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Animación moderna */
 }
 
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
+.navbar-nav .nav-link:hover {
+    text-decoration: none; /* Sin subrayado */
+    background: none; /* Sin fondo */
+    color: #00bcd4; /* Hover en celeste */
+    transform: scale(1.1); /* Sutil ampliación en hover */
+}
+
+/* Estilo de los botones y búsqueda */
+.user-options .btn {
+    margin: 0 10px;
+    font-size: 14px; /* Tamaño de fuente pequeño */
+    padding: 8px 15px; /* Mejora el tamaño y el padding para botones */
+    display: inline-flex; /* Alineación de íconos dentro de botones */
     align-items: center;
-    padding: 30px 20px;
-    background: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    color: #000;
-    flex-wrap: wrap;
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Transiciones */
 }
 
-/* Logo */
-.header .logo {
-    max-height: 80px;
-    border-radius: 50%;
-    animation: glow 2s infinite;
-    border: 3px solid var(--primary-color);
-    padding: 10px;
+.user-options .btn:hover {
+    background: none; /* Hover sin fondo */
+    color: inherit; /* Mantiene el color */
+    transform: none; /* Sin transformación */
 }
 
-/* Animación del logo */
-@keyframes glow {
-    0%, 100% {
-        box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color);
-    }
-    50% {
-        box-shadow: 0 0 25px var(--primary-color), 0 0 50px var(--secondary-color);
-    }
+/* Texto de promoción: 15% OFF x TRANSFERENCIA 🔥 */
+.promo-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6f61;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadePromo 40s infinite ease-in-out; /* Animación lenta y suave */
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    gap: 20px;
+@keyframes fadePromo {
+    0%, 100% { opacity: 0; transform: translateY(-20px); }
+    10%, 90% { opacity: 1; transform: translateY(0); }
 }
 
-.navbar .nav-link {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
-}
-
-.navbar .nav-link:hover {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-}
-
-/* Iconos de login y carrito */
-.navbar .nav-icon {
-    color: var(--icon-color);
-    font-size: 2.2rem; /* Tamaño más grande */
-    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar .nav-icon:hover {
-    color: var(--primary-color);
-    transform: scale(1.2);
-    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color); /* Resplandor en hover */
-}
-
-/* Sección principal */
-.main {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 60px 20px;
-    min-height: 80vh;
-    background: var(--main-bg-gradient);
-    gap: 40px;
-}
-
-.main .text-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    max-width: 600px;
-}
-
-.main h1 {
-    font-family: var(--body-font);
-    font-size: 4.5rem;
-    font-weight: 800;
-    color: white;
-    text-shadow: 3px 3px 12px #ffffff;
-}
-
-.main p {
-    font-family: var(--body-font);
-    font-size: 1.6rem;
-    color: #ddd;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    line-height: 1.8;
-}
-
-/* Estilo para imágenes */
-.images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.images img {
-    width: 100%; /* Imagen más ancha */
-    max-width: 800px; /* Máximo ancho ajustado */
-    max-height: 500px; /* Altura mayor */
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    animation: borderGlow 3s infinite, scaleImage 4s infinite;
-    border: 3px solid var(--border-color);
+/* Estilo del logo con animación */
+.logo {
+    animation: glowing 2s infinite alternate;
+    border-radius: 50%; /* Redondeo del logo */
     opacity: 0.8;
 }
 
-/* Animación de borde de imagen */
-@keyframes borderGlow {
-    0%, 100% {
-        box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--secondary-color);
-        opacity: 0.8;
-    }
-    50% {
-        box-shadow: 0 0 25px var(--primary-color), 0 0 50px var(--secondary-color);
-        opacity: 1;
-    }
+@keyframes glowing {
+    0% { box-shadow: 0 0 10px #ff6f61, 0 0 20px #ff6f61; }
+    100% { box-shadow: 0 0 20px #ff6f61, 0 0 30px #ff6f61; }
 }
 
-/* Animación de escala de la imagen */
-@keyframes scaleImage {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-.images img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #111;
-    font-size: 0.9rem;
-    color: #aaa;
-    border-top: 1px solid #333;
-}
-
-footer a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: var(--secondary-color);
-}
-
-/* Responsivo para dispositivos móviles */
-@media (max-width: 768px) {
-    .main {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-
-    .main h1 {
-        font-size: 3.5rem;
-    }
-
-    .main p {
-        font-size: 1.4rem;
-    }
-
-    .images img {
-        width: 90%;
-        max-height: 350px;
-    }
-}
-
-/* Animación de texto deslizante */
-@keyframes slide {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.header-top {
-    text-align: center;
-    font-size: 12px;
-    white-space: nowrap;
-    overflow: hidden;
+/* Banner */
+.banner {
     position: relative;
+    overflow: hidden;
 }
 
-.header-top p {
-    display: inline-block;
-    animation: slide 10s linear infinite;
+.banner-item {
+    display: flex;
+    justify-content: flex-start; /* Texto alineado a la izquierda */
+    align-items: center;
+    background-color: #333;
 }
 
-.promo-text {
-    color: #fff; /* Color blanco */
-    font-size: 1.5rem; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    text-align: center; /* Alineación centrada */
-    padding: 20px; /* Espaciado interno */
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra sutil */
-    transition: all 0.3s ease; /* Transición suave */
+.banner-img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    opacity: 0.8; /* Opacidad de la imagen */
+    border: 2px solid #000; /* Borde negro alrededor de la imagen */
 }
 
-.promo-text:hover {
-    background: #000000b3; /* Fondo más oscuro al pasar el ratón */
-    transform: scale(1.05); /* Efecto de ampliación al pasar el ratón */
+.banner-text {
+    padding: 20px;
+    color: white;
+    text-align: left; /* Alineación del texto */
 }
 
-/* Iconos de login y carrito */
-.navbar .nav-icon {
-    color: var(--primary-color); /* Cambiar color a azul */
-    font-size: 1.8rem; /* Hacer los iconos más pequeños */
-    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+/* Diseño responsive */
+@media (max-width: 1200px) {
+    .banner-item {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .banner-img {
+        max-width: 45%;
+    }
+
+    .banner-text {
+        text-align: left;
+    }
 }
 
-.navbar .nav-icon:hover {
-    color: var(--secondary-color); /* Cambiar el color al pasar el ratón */
-    transform: scale(1.1);
-    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+@media (max-width: 992px) {
+    .banner-item {
+        flex-direction: column;
+    }
+
+    .banner-img {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .banner-text {
+        text-align: center; /* Centrar el texto en tabletas */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px; /* Reducir el tamaño de fuente en tabletas */
+    }
+
+    .user-options .form-control {
+        max-width: 150px; /* Reducir tamaño de búsqueda */
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-item {
+        flex-direction: column;
+    }
+
+    .banner-img {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .banner-text {
+        text-align: center; /* Centrar el texto en móviles */
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px; /* Reducir el tamaño de fuente en móviles */
+    }
+
+    .user-options .form-control {
+        max-width: 120px; /* Reducir tamaño de búsqueda */
+    }
+
+    .user-options .btn {
+        font-size: 12px; /* Reducir tamaño de botones */
+    }
 }
